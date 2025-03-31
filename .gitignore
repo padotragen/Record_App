@@ -37,3 +37,4 @@ Discogs/
 app/data/*.json
 .gitignore
 app/data/releases/*.json
+Discogs/example.py
