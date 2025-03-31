@@ -35,3 +35,4 @@ instance/
 _archive/
 Discogs/
 *.code-workspace
+.env
