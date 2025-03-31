@@ -20,8 +20,6 @@ MANIFEST
 # Log files and databases
 *.log
 *.db
-/data/*.json
-/data/releases/*.json
 .env
 
 # Flask specific
@@ -36,3 +34,6 @@ _archive/
 Discogs/
 *.code-workspace
 .env
+app/data/*.json
+.gitignore
+app/data/releases/*.json
