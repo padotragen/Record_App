@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+# Distribution / packaging
+.eggs/
+*.egg-info/
+dist/
+build/
+wheels/
+*.egg
+MANIFEST
+
+# Log files and databases
+*.log
+*.db
+/data/*.json
+/data/releases/*.json
+
+# Flask specific
+instance/
+
+# OS or Editor related files
+.DS_Store
+*.swp
+*.~
+.vscode/
+_archive/
+Disogs/
+*.code-workspace

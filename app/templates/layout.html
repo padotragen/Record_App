@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Layout Title{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <!-- <a href="{{ url_for('index') }}">Home</a> -->
+        <a href="{{ url_for('collection') }}">Collection</a>
+        <a href="{{ url_for('carousel') }}">Carousel</a>
+        <a href="{{ url_for('api_collection') }}">API Collection Data</a>
+    </div>
+    <div class="main">
+        <h1>{% block header %}Layout Header{% endblock %}</h1>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

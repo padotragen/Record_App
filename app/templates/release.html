@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ album.title }} - {{ album.artist }}{% endblock %}
+{% block header %}Album Details{% endblock %}
+{% block content %}
+<div class="track-container">
+    <h2>{{ album.title }}</h2>
+    <h3>by {{ album.artist }}</h3>
+    <p><strong>Label:</strong> {{ album.labels }} <br />
+        <strong>Year:</strong> {{ album.year }} <br />
+        <strong>Genres:</strong> {{ album.genres | join(', ') }}
+    </p>
+    <img src="{{ album.imageURI }}" alt="{{ album.title }} cover" width="300">
+
+    <div class="tracklist">
+        <h3>Tracklist:</h3>
+        <ul>
+            {% for track in tracks %}
+            <li><strong>{{ track['Track Number'] }}</strong>: {{ track['Track'] }} ({{ track['Duration'] }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

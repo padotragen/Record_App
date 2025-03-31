@@ -1,0 +1,250 @@
+/* Color Palette Suggestions 
+https://colorhunt.co/palette/f7f7f7ffb22c854836000000 
+https://colorhunt.co/palette/f4f6fff3c623eb831710375c
+*/
+body {
+    font-family: Arial, sans-serif;
+    color: #10375C;
+    background-color: #F4F6FF;
+}
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #10375C;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #F4F6FF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: #F4F6FF;
+    color: #10375C;
+}
+
+/* Main content */
+.main {
+    margin-top: 50px;
+}
+
+/* Collection Design block */
+#collection {
+
+    #album {
+
+        padding: 10px;
+        border: 5px;
+        border-radius: 10px;
+        margin: 10px auto 10px auto;
+        width: 80%;
+
+        &:nth-child(2n-1) {
+
+            color: #F4F6FF;
+            background-color: #F3C623 !important;
+            border-color: #333 !important;
+        }
+
+        &:nth-child(2n-2) {
+
+            color: #F4F6FF;
+            background-color: #EB8317 !important;
+            border-color: #333 !important;
+        }
+    }
+}
+
+#album img {
+    max-width: 100px;
+    max-height: 100px;
+    filter: drop-shadow(0 0 0.75rem #10375C);
+    padding-right: 1rem;
+}
+
+#album a {
+    color: #F4F6FF;
+    text-decoration: none;
+}
+
+#album a:hover {
+    text-decoration: underline;
+}
+
+#album h2 {
+    margin: 0px 10px;
+}
+
+#album h3 {
+    margin: 0px 10px;
+}
+
+#album table {
+    border: none;
+    border-collapse: collapse;
+    margin: 10px 0px 0px 10px;
+    height: auto;
+}
+
+#album th,
+td {
+    text-align: left;
+    vertical-align: top;
+}
+
+#album th {
+    background-color: #f4f4f4;
+}
+
+.track-container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    border: 5px;
+    border-radius: 10px;
+    color: #F4F6FF;
+    background-color: #F3C623 !important;
+    border-color: #333 !important;
+}
+
+.track-container img {
+    filter: drop-shadow(0 0 0.75rem #10375C);
+}
+
+.tracklist {
+    text-align: left;
+    margin: 20px;
+}
+
+/* General Carousel Styling */
+.carousel {
+    position: relative;
+    width: 85%;
+    margin: 10px auto;
+    overflow: hidden;
+    background: #10375C;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.carousel-item {
+    padding: 10px;
+    border: 5px;
+    border-radius: 10px;
+    margin: 10px auto 10px auto;
+    width: auto;
+
+    &:nth-child(2n-1) {
+        color: #F4F6FF;
+        background-color: #F3C623 !important;
+        border-color: #333 !important;
+    }
+
+    &:nth-child(2n-2) {
+        color: #F4F6FF;
+        background-color: #EB8317 !important;
+        border-color: #333 !important;
+    }
+}
+
+/* Add transition for sliding effect */
+.carousel-item {
+    display: none;
+    opacity: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+.carousel-item img {
+    max-width: 100px;
+    max-height: 100px;
+    filter: drop-shadow(0 0 0.75rem #10375C);
+    padding-right: 1rem;
+}
+
+.carousel-item a {
+    color: #F4F6FF;
+    text-decoration: none;
+}
+
+.carousel-item a:hover {
+    text-decoration: underline;
+}
+
+.carousel-item h2,
+h3 {
+    margin: 0px 10px;
+}
+
+.carousel-item table {
+    border: none;
+    border-collapse: collapse;
+    margin: 10px 0px 0px 10px;
+    height: auto;
+}
+
+.carousel-item th,
+td {
+    text-align: left;
+    vertical-align: top;
+}
+
+.carousel-item th {
+    background-color: #f4f4f4;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Control Buttons */
+.carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #F4F6FF;
+    padding: 12px 12px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+}
+
+/* Hover effect for control buttons */
+.carousel-controls button:hover {
+    background-color: #EB8317BF;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    color: #F4F6FF;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    justify-content: center;
+}
