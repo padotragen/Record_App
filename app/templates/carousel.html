@@ -24,51 +24,58 @@
             endif %}>Album</option>
     </select>
 </div>
-
+<p></p>
 <!-- Carousel Section -->
 <div class="carousel">
-    {% for release in data.values() %}
-    <div class="carousel-item">
-        <a href="{{ url_for('release',id=release.releaseId) }}" target="_blank">
-            <h2>{{ release.title }}</h2>
-        </a>
-        <h3>{{ release.artist }}</h3>
-        <table>
-            <tr>
-                <td rowspan="4" class="imageThumb"><a href="{{ url_for('release',id=release.releaseId) }}"
-                        target="_blank"><img
-                            src="{{ release.imageURI if release.imageURI else url_for('static', filename='placeholder.jpg') }}"
-                            alt="{{ release.title }}"></a></td>
-                <td><strong>Label:</strong></td>
-                <td>{{ release.labels }}</td>
-            </tr>
-            <tr>
-                <td><strong>Year:</strong></td>
-                <td>{{ release.year }}</td>
-            </tr>
-            <tr>
-                <td><strong>Genres:</strong></td>
-                <td>{{ release.genres | join(', ') }}</td>
-            </tr>
-            <tr>
-                <td><strong>Format:</strong></td>
-                <td>
-                    {% for format in release.format %}
-                    {{ format.name }} ({{ format.qty }}) - {{ format.descriptions | join(', ') }}{% if format.text
-                    %}
-                    ({{ format.text }}){% endif %}<br>
-                    {% endfor %}
-                </td>
-            </tr>
-        </table>
+    <div class="carousel-track">
+        {% for release in data.values() %}
+        <div class="carousel-item">
+            <div class="carousel-content">
+                <a href="{{ url_for('release',id=release.releaseId) }}" target="_blank">
+                    <h2>{{ release.title }}</h2>
+                </a>
+                <h3>{{ release.artist }}</h3>
+                <table>
+                    <tr>
+                        <td rowspan="4" class="imageThumb">
+                            <a href="{{ url_for('release',id=release.releaseId) }}" target="_blank">
+                                <img src="{{ release.imageURI if release.imageURI else url_for('static', filename='placeholder.jpg') }}"
+                                    alt="{{ release.title }}">
+                            </a>
+                        </td>
+                        <td><strong>Label:</strong></td>
+                        <td>{{ release.labels }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year:</strong></td>
+                        <td>{{ release.year }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Genres:</strong></td>
+                        <td>{{ release.genres | join(', ') }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Format:</strong></td>
+                        <td>
+                            {% for format in release.format %}
+                            {{ format.name }} ({{ format.qty }}) - {{ format.descriptions | join(', ') }}{% if
+                            format.text
+                            %} ({{ format.text }}){% endif %}<br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
     <div class="carousel-controls">
         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
         <div class="carousel-indicators"></div>
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
 </div>
+
 
 <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
 

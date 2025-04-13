@@ -1,17 +1,24 @@
-/* Color Palette Suggestions 
-https://colorhunt.co/palette/f7f7f7ffb22c854836000000 
-https://colorhunt.co/palette/f4f6fff3c623eb831710375c
-*/
-body {
-    font-family: Arial, sans-serif;
-    color: #10375C;
-    background-color: #F4F6FF;
+:root {
+    --main-bg-color: #F4F6FF;
+    --main-text-color: #10375C;
+    --secondary-bg-color: #10375C;
+    --secondary-text-color: #F4F6FF;
+    --main-accent-color: #F3C623;
+    --secondary-accent-color: #EB8317;
 }
 
-/* The navigation bar */
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+}
+
+/* Navbar */
 .navbar {
     overflow: hidden;
-    background-color: #10375C;
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 0 1rem 0 #000;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,63 +26,58 @@ body {
     z-index: 2;
 }
 
-/* Links inside the navbar */
 .navbar a {
     float: left;
     display: block;
-    color: #F4F6FF;
+    color: var(--secondary-text-color);
     text-align: center;
-    padding: 14px 16px;
+    padding: 1rem 1rem;
     text-decoration: none;
 }
 
-/* Change background on mouse-over */
 .navbar a:hover {
-    background: #F4F6FF;
-    color: #10375C;
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
 }
 
-/* Main content */
+.settings {
+    float: right !important;
+}
+
+/* Main Content */
 .main {
-    margin-top: 50px;
+    margin-top: 3.75rem;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* Collection Design block */
-#collection {
+#album {
+    color: var(--secondary-text-color);
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    margin: 0.625rem auto 0.625rem auto;
+    width: 80%;
+    border-style: solid;
+    border-color: var(--main-text-color) !important;
+    background-color: var(--main-accent-color) !important;
+}
 
-    #album {
-
-        padding: 10px;
-        border: 5px;
-        border-radius: 10px;
-        margin: 10px auto 10px auto;
-        width: 80%;
-
-        &:nth-child(2n-1) {
-
-            color: #F4F6FF;
-            background-color: #F3C623 !important;
-            border-color: #333 !important;
-        }
-
-        &:nth-child(2n-2) {
-
-            color: #F4F6FF;
-            background-color: #EB8317 !important;
-            border-color: #333 !important;
-        }
-    }
+#album:nth-child(2n-2) {
+    background-color: var(--secondary-accent-color) !important;
 }
 
 #album img {
-    max-width: 100px;
-    max-height: 100px;
-    filter: drop-shadow(0 0 0.75rem #10375C);
+    max-width: 6.25rem;
+    max-height: 6.25rem;
+    filter: drop-shadow(0.25rem 0.5rem 0.5rem #000);
     padding-right: 1rem;
 }
 
 #album a {
-    color: #F4F6FF;
+    color: var(--secondary-text-color);
     text-decoration: none;
 }
 
@@ -84,17 +86,17 @@ body {
 }
 
 #album h2 {
-    margin: 0px 10px;
+    margin: 0rem 0.625rem;
 }
 
 #album h3 {
-    margin: 0px 10px;
+    margin: 0rem 0.625rem;
 }
 
 #album table {
     border: none;
     border-collapse: collapse;
-    margin: 10px 0px 0px 10px;
+    margin: 0.625rem 0rem 0rem 0.625rem;
     height: auto;
 }
 
@@ -104,84 +106,92 @@ td {
     vertical-align: top;
 }
 
-#album th {
-    background-color: #f4f4f4;
-}
-
+/* Track Page */
 .track-container {
-    max-width: 600px;
+    max-width: 37.5rem;
     margin: auto;
     text-align: center;
-    padding: 10px;
-    border: 5px;
-    border-radius: 10px;
-    color: #F4F6FF;
-    background-color: #F3C623 !important;
-    border-color: #333 !important;
+    padding: 0.625rem;
+    border: 0.063rem;
+    border-radius: 0.625rem;
+    color: var(--secondary-text-color);
+    background-color: var(--main-accent-color) !important;
+    border-style: solid;
+    border-color: var(--main-text-color) !important;
 }
 
 .track-container img {
-    filter: drop-shadow(0 0 0.75rem #10375C);
+    filter: drop-shadow(0.25rem 0.5rem 0.5rem #000);
 }
 
 .tracklist {
     text-align: left;
-    margin: 20px;
+    margin: 1.25rem;
 }
 
-/* General Carousel Styling */
+/* Carousel Page */
 .carousel {
     position: relative;
-    width: 85%;
-    margin: 10px auto;
+    width: 100%;
+    max-width: 85vmax;
+    margin: 0 auto;
     overflow: hidden;
-    background: #10375C;
-    border-radius: 10px;
-    padding: 10px;
+    background: var(--secondary-bg-color);
+    border-radius: 0.625rem;
+    /* Remove extra padding */
+    padding: 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    width: max-content;
 }
 
 .carousel-item {
-    padding: 10px;
-    border: 5px;
-    border-radius: 10px;
-    margin: 10px auto 10px auto;
-    width: auto;
-
-    &:nth-child(2n-1) {
-        color: #F4F6FF;
-        background-color: #F3C623 !important;
-        border-color: #333 !important;
-    }
-
-    &:nth-child(2n-2) {
-        color: #F4F6FF;
-        background-color: #EB8317 !important;
-        border-color: #333 !important;
-    }
-}
-
-/* Add transition for sliding effect */
-.carousel-item {
-    display: none;
-    opacity: 0;
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     text-align: center;
-    color: #fff;
+    color: var(--secondary-text-color);
+    background-color: var(--main-accent-color);
+    border-style: solid;
+    border-color: var(--main-text-color) !important;
+    border-bottom-left-radius: 0.625rem;
+    border-bottom-right-radius: 0.625rem;
+    box-shadow: inset 0 0 1rem 0 #000;
 }
 
-.carousel-item.active {
-    display: block;
-    opacity: 1;
+.carousel-item:nth-child(2n-2) {
+    background-color: var(--secondary-accent-color) !important;
+}
+
+.carousel,
+.carousel-track,
+.carousel-item {
+    max-width: 100%;
+}
+
+.carousel-content {
+    padding: 0.625rem;
+}
+
+.carousel-content table {
+    margin: 1rem;
 }
 
 .carousel-item img {
-    max-width: 100px;
-    max-height: 100px;
-    filter: drop-shadow(0 0 0.75rem #10375C);
+    max-width: 9.375rem;
+    max-height: 9.375rem;
+    filter: drop-shadow(0.25rem 0.5rem 0.5rem #000);
     padding-right: 1rem;
 }
 
 .carousel-item a {
-    color: #F4F6FF;
+    color: var(--secondary-text-color);
     text-decoration: none;
 }
 
@@ -191,14 +201,7 @@ td {
 
 .carousel-item h2,
 h3 {
-    margin: 0px 10px;
-}
-
-.carousel-item table {
-    border: none;
-    border-collapse: collapse;
-    margin: 10px 0px 0px 10px;
-    height: auto;
+    margin: 0rem 0.625rem;
 }
 
 .carousel-item th,
@@ -207,44 +210,48 @@ td {
     vertical-align: top;
 }
 
-.carousel-item th {
-    background-color: #f4f4f4;
-}
-
-/* Carousel Controls */
 .carousel-controls {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     box-sizing: border-box;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
 }
 
-/* Control Buttons */
 .carousel-controls button {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
-    color: #F4F6FF;
-    padding: 12px 12px;
-    font-size: 20px;
+    color: var(--secondary-text-color);
+    padding: .625rem;
+    font-size: 1.25rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 50%;
 }
 
-/* Hover effect for control buttons */
 .carousel-controls button:hover {
-    background-color: #EB8317BF;
+    background-color: var(--secondary-accent-color);
 }
 
-/* Carousel Indicators */
 .carousel-indicators {
-    color: #F4F6FF;
-    font-size: 16px;
+    color: var(--secondary-text-color);
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 10px;
-    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Settings Page */
+
+.settingsMenu {
+    border: 1px solid;
+    border-color: var(--main-text-color) !important;
+    border-radius: 0.625rem;
+    padding-left: 1rem;
+    max-width: 50%;
+
 }
