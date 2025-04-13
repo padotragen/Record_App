@@ -40,6 +40,10 @@ body {
     color: var(--main-text-color);
 }
 
+.settings {
+    float: right !important;
+}
+
 /* Main Content */
 .main {
     margin-top: 3.75rem;
@@ -239,4 +243,15 @@ td {
     font-weight: bold;
     text-align: center;
     flex-grow: 1;
+}
+
+/* Settings Page */
+
+.settingsMenu {
+    border: 1px solid;
+    border-color: var(--main-text-color) !important;
+    border-radius: 0.625rem;
+    padding-left: 1rem;
+    max-width: 50%;
+
 }
