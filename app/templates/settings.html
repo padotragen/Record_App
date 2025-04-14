@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Settings{% endblock %}
+{% block header %}Settings{% endblock %}
+
+{% block content %}
+<div class="settingsMenu">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.collectionRefresh() }}
+        </p>
+    </form>
+</div>
+{% endblock %}
