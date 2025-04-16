@@ -55,6 +55,8 @@ def retrieve_collection(d, file_path):
     me = d.identity()
     total_collection = {}
 
+    ensure_filepath(file_path)
+
     for item in me.collection_folders[0].releases:
         total_collection[item.id] = retrieve_releaseInfo(d, item.id)
 
