@@ -1,6 +1,3 @@
-Got it! Here's the full `README.md` file presented in **one single code block** without breaking across messages:
-
-````markdown
 # Record_App 🎵
 
 A Flask web application to display your personal album collection using the [Discogs API](https://www.discogs.com/developers). Built with Flask, Jinja2, HTML, CSS, and JavaScript, this app provides a clean and simple interface to explore your music library.
@@ -75,4 +72,3 @@ Feel free to fork the project and submit pull requests. Suggestions and bug repo
 ## 📄 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-````
