@@ -163,10 +163,19 @@ def settings():
     collection_file = DEFAULT_FILE
     collection_file_path = os.path.join(DATA_FOLDER, collection_file)
 
+    me = d.identity()
+
+    userProfile = {
+        "username": me.username,
+        "fullName": me.name,
+        "url": me.url,
+        "collectionNum": me.num_collection,
+    }
+
     form = SettingsForm()
     if form.validate_on_submit():
         dp.retrieve_collection(d, collection_file_path)
-    return render_template("settings.html", form=form)
+    return render_template("settings.html", form=form, userProfile=userProfile)
 
 
 @app.route("/api/collection")
