@@ -28,7 +28,7 @@ jobs:
       - name: Set up .env file
         run: |
           cp .env.example .env
-          sed -i 's/^APIKEY=.*/APIKEY=${{ secrets.APIKEY }}/' .env
+          sed -i 's|^API_KEY=.*|API_KEY=${{ secrets.APIKEY }}|' .env
           cat .env
 
       - name: Test Flask startup
