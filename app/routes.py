@@ -17,7 +17,6 @@ d = discogs_client.Client("ExampleApplication/0.1", user_token=USER_TOKEN)
 
 @app.route("/")
 def index():
-    # return render_template("index.html")
     return redirect(url_for("collection"))
 
 

@@ -24,12 +24,26 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
+          pip install pytest pytest-cov  # Install pytest and pytest-cov for test coverage
 
       - name: Set up .env file
         run: |
           cp .env.example .env
           sed -i 's|^API_KEY=.*|API_KEY=${{ secrets.APIKEY }}|' .env
           cat .env
+
+      - name: Run tests with coverage
+        run: |
+          source venv/bin/activate
+          export FLASK_APP=recordapp.py
+          export FLASK_ENV=development
+          pytest --maxfail=1 --disable-warnings -q --cov=recordapp --cov-report=xml test  # Look inside 'test' folder
+
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage.xml  # Upload the coverage report generated in the previous step
 
       - name: Test Flask startup
         run: |
