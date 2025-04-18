@@ -37,7 +37,7 @@ jobs:
           source venv/bin/activate
           export FLASK_APP=recordapp.py
           export FLASK_ENV=development
-          pytest --maxfail=1 --disable-warnings -q --cov=recordapp --cov-report=xml test  # Look inside 'test' folder
+          pytest --maxfail=1 --disable-warnings -q --cov=recordapp --cov-report=xml:coverage.xml test  # Save coverage report to coverage.xml
 
       - name: Upload coverage report as artifact
         uses: actions/upload-artifact@v3
