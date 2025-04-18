@@ -34,8 +34,9 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          source venv/bin/activate
-          pytest --cov=recordapp --cov-report=xml:coverage.xml test/
+            source venv/bin/activate
+            export $(grep -v '^#' .env | xargs)  # 👈 This loads .env into environment
+            pytest --cov=recordapp --cov-report=xml:coverage.xml test/
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
