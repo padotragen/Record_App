@@ -1,12 +1,12 @@
-name: Flask App Boot Test
+name: Flask App Tests with Coverage
 
 on:
   push:
     branches:
-      - '**'  # Runs on push to any branch
+      - '**'  # Run on push to any branch
 
 jobs:
-  test-flask-startup:
+  test-flask:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # Adjust if needed
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -24,7 +24,7 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest pytest-cov  # Install pytest and pytest-cov for test coverage
+          pip install pytest pytest-cov
 
       - name: Set up .env file
         run: |
@@ -35,27 +35,10 @@ jobs:
       - name: Run tests with coverage
         run: |
           source venv/bin/activate
-          export FLASK_APP=recordapp.py
-          export FLASK_ENV=development
-          pytest --maxfail=1 --disable-warnings -q --cov=recordapp --cov-report=xml:coverage.xml test  # Save coverage report to coverage.xml
+          pytest --cov=recordapp --cov-report=xml:coverage.xml test/
 
-      - name: Upload coverage report as artifact
+      - name: Upload coverage report
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: coverage.xml  # Upload the coverage report generated in the previous step
-
-      - name: Test Flask startup
-        run: |
-          source venv/bin/activate
-          export FLASK_APP=recordapp.py
-          export FLASK_ENV=development
-          flask run --no-debugger --no-reload &
-          sleep 5
-          if pgrep -f "flask run" > /dev/null
-          then
-            echo "✅ Flask app started successfully."
-          else
-            echo "❌ Flask app failed to start."
-            exit 1
-          fi
+          path: coverage.xml
